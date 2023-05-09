@@ -37,6 +37,8 @@ export default function HomeScreen() {
           el?.results_shown > 0  && <Features id={idx} title={"Featured"} description={"loreme loda adjadfk"} restaurents={el?.restaurants}/>
         ))} */}
         <Features id={1} title={"Featured"} description={"loreme loda adjadfk"} restaurents={restaurentData[0].restaurants}/>
+        <Features id={1} title={"Featured"} description={"loreme loda adjadfk"} restaurents={restaurentData[1].restaurants}/>
+
       </ScrollView>
     </SafeAreaView>
   )

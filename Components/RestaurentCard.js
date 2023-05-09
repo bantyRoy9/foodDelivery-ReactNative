@@ -35,7 +35,7 @@ export default function RestaurentCard({
             lat
         })}
         className="bg-white shadow-sm mr-3">
-            <Image key={1} source={{
+            <Image key={id} source={{
                 uri: thumb
             }} className="h-40 w-60 rounded" />
             <View className="px-3 pb-4">

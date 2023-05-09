@@ -1,9 +1,10 @@
-import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, Image, TouchableOpacity, Button, StyleSheet } from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { ArrowLeftIcon, ChevronDoubleRightIcon, MapPinIcon, QuestionMarkCircleIcon, StarIcon, CurrencyRupeeIcon } from 'react-native-heroicons/solid';
 import DishRow from '../Components/DishRow';
 import { dishList } from '../assets/JSONData/restaurentData';
+import PressableButton from '../Components/buttons/Pressable';
 export default function Restaurent() {
   const { params: { id,
     imgUrl,
@@ -57,6 +58,17 @@ export default function Restaurent() {
         {dishList.map((el,idx)=>(
           <DishRow id={idx} title={el.title} imgUrl={el.imgUrl} price={el.price} description={el.description}/>
         ))}
+      </View>
+      <View className="absolute left-0 right-0">
+        <View className="p-4 bg-green-400 flex flex-row justify-around flex-1">
+          <View>
+            <Text className="text-lg text-white-400">Item Added</Text>
+          </View>
+          <View>
+            <PressableButton props={{title:'next',onPrrss:''}}/>
+          </View>
+
+        </View>
       </View>
     </ScrollView>
   )
