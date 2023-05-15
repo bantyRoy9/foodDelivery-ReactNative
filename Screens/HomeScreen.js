@@ -40,6 +40,6 @@ export default function HomeScreen() {
         <Features id={1} title={"Featured"} description={"loreme loda adjadfk"} restaurents={restaurentData[1].restaurants}/>
 
       </ScrollView>
-    </SafeAreaView>
+    </SafeAreaView> 
   )
 }

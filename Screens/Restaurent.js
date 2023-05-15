@@ -5,6 +5,7 @@ import { ArrowLeftIcon, ChevronDoubleRightIcon, MapPinIcon, QuestionMarkCircleIc
 import DishRow from '../Components/DishRow';
 import { dishList } from '../assets/JSONData/restaurentData';
 import PressableButton from '../Components/buttons/Pressable';
+import BasketIcons from '../Components/BasketIcons';
 export default function Restaurent() {
   const { params: { id,
     imgUrl,
@@ -20,7 +21,9 @@ export default function Restaurent() {
     lat } } = useRoute();
   const navigator = useNavigation();
   return (
-    <ScrollView>
+    <>
+        <BasketIcons />
+        <ScrollView>
       <View className='relative'>
         <Image source={{ uri: thumb }} className="h-56 w-full bg-gray-100 p-4" />
         <TouchableOpacity onPress={navigator.goBack} className="absolute top-14 p-2 left-5 bg-gray-100 rounded-full">
@@ -59,17 +62,8 @@ export default function Restaurent() {
           <DishRow id={idx} title={el.title} imgUrl={el.imgUrl} price={el.price} description={el.description}/>
         ))}
       </View>
-      <View className="absolute left-0 right-0">
-        <View className="p-4 bg-green-400 flex flex-row justify-around flex-1">
-          <View>
-            <Text className="text-lg text-white-400">Item Added</Text>
-          </View>
-          <View>
-            <PressableButton props={{title:'next',onPrrss:''}}/>
-          </View>
-
-        </View>
-      </View>
     </ScrollView>
+    </>
+
   )
 }

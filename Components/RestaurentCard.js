@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { StarIcon, MapPinIcon } from 'react-native-heroicons/solid'
 import { useNavigation } from '@react-navigation/native'
+import BasketIcons from './BasketIcons';
 
 export default function RestaurentCard({
     id,
@@ -19,6 +20,7 @@ export default function RestaurentCard({
 }) {
     const navigator = useNavigation();
     return (
+        <>
         <TouchableOpacity
         onPress={()=>navigator.navigate("Restaurent",{
             id,
@@ -52,5 +54,6 @@ export default function RestaurentCard({
                 </View>
             </View>
         </TouchableOpacity>
+        </>
     )
 }
