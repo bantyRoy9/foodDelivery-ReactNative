@@ -42,11 +42,11 @@ export default function DishRow({ id, title, imgUrl, price, description }) {
         <View>
           <View className="flex-row items-center bg-white pb-2">
             <TouchableOpacity onPress={removeBasketItem}>
-              <MinusCircleIcon color={"#00CCBB"} size={40} />
+              <MinusCircleIcon color={items.length>0?"#00CCBB":"grey"} size={35} />
             </TouchableOpacity>
             <Text className="mx-1">{items.length}</Text>
             <TouchableOpacity onPress={addBasketItem}>
-              <PlusCircleIcon color={"#00CCBB"} size={40} />
+              <PlusCircleIcon color={"#00CCBB"} size={35} />
             </TouchableOpacity>
           </View>
         </View>}
