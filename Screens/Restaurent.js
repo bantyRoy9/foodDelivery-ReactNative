@@ -6,6 +6,8 @@ import DishRow from '../Components/DishRow';
 import { dishList } from '../assets/JSONData/restaurentData';
 import PressableButton from '../Components/buttons/Pressable';
 import BasketIcons from '../Components/BasketIcons';
+import { useSelector } from 'react-redux';
+import { selectBasketItems } from '../Feature/basketSlice';
 export default function Restaurent() {
   const { params: { id,
     imgUrl,
@@ -20,6 +22,7 @@ export default function Restaurent() {
     long,
     lat } } = useRoute();
   const navigator = useNavigation();
+  const items = useSelector(selectBasketItems)
   return (
     <>
         <BasketIcons />
@@ -56,8 +59,9 @@ export default function Restaurent() {
           <ChevronDoubleRightIcon color="#00CCBB" />
         </TouchableOpacity>
       </View>
+
+      <View className={ items.length>0 ? 'pb-24' : 'pb-0'}>
       <Text className="p-4 text-white text-lg bg-gray-400">Menu</Text>
-      <View>
         {dishList.map((el,idx)=>(
           <DishRow id={idx} title={el.title} imgUrl={el.imgUrl} price={el.price} description={el.description}/>
         ))}
