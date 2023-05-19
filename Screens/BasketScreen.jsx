@@ -5,11 +5,12 @@ import globalStyleSheet from './globalStyleSheet'
 import { XCircleIcon } from 'react-native-heroicons/solid'
 import { useNavigation } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
-import { selectBasketItems } from '../Feature/basketSlice'
+import { basketItemsTotal, selectBasketItems } from '../Feature/basketSlice'
 
 const BasketScreen = () => {
   const navigation = useNavigation();
   const items = useSelector(selectBasketItems)
+  const basketTotoal = useSelector(basketItemsTotal);
   const [groupItem,setGroupItem]=useState([]);
   useEffect(()=>{
     const groupItem = items.reduce((results,item)=>{
@@ -40,7 +41,7 @@ const BasketScreen = () => {
       </View>
       <ScrollView className="divide-y divide-gray-200">
         {Object.entries(groupItem).map(([key,items])=>(
-          <View key={key} className="flex-row space-x-3 items-center py-2 px-5">
+          <View key={key} className="flex-row space-x-3 items-center bg-white py-2 px-5">
             <Text className="text-[#00CCBB]">{items.length} x </Text>
             {/* <Text>{items[0]?.imgUrl}</Text> */}
             <Image source={{uri:items[0]?.imgUrl}} className="w-12 h-12 rounded-full"/>
@@ -49,6 +50,25 @@ const BasketScreen = () => {
           </View>
         ))}
       </ScrollView>
+      <View className="mt-4 p-5 space-y-4 bg-white">
+        <View className="flex-row justify-between">
+           <Text className="text-gray-400">SubTotal</Text>
+          <Text className="text-gray-400">{basketTotoal}</Text> 
+        </View>
+        <View className="flex-row justify-between">
+           <Text className="text-gray-400">Delivey Fee</Text>
+          <Text className="text-gray-400">20</Text> 
+        </View>
+        
+        <View className="flex-row justify-between font-bold">
+           <Text >Order Total</Text>
+          <Text>{basketTotoal+20}</Text> 
+        </View>
+        
+        <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
+           <Text className="text-white text-center">Place Order</Text>
+        </TouchableOpacity>
+      </View>
       </View>
     </SafeAreaView>
   )
