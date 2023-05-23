@@ -17,13 +17,13 @@ const BasketScreen = () => {
       (results[item.title] = results[item.title] || []).push(item);
      return results
     },{})
-    console.log(groupItem,'*************************')
+    // console.log(groupItem,'*************************')
     setGroupItem(groupItem);
   },[items]);
   return (
     <SafeAreaView style={globalStyleSheet.androidSaveAreaView} className="flex-1 bg-white">
-      <View className="flex-1 bg-gray-100">
-        <View className="bg-white items-center p-5 border-b border-[#00CCBB] shadow-sm rounded-lg">
+      <View className="flex-1 bg-gray-200">
+        <View className="bg-white items-center p-5 shadow-sm rounded-lg">
           <View>
           <Text className="text-[#3d3d3d] font-bold text-center">Basket</Text>
 
@@ -47,6 +47,7 @@ const BasketScreen = () => {
             <Image source={{uri:items[0]?.imgUrl}} className="w-12 h-12 rounded-full"/>
             <Text className="flex-1">{items[0]?.title}</Text>
             <Text className="text-gray-600">{items[0]?.price}</Text>
+            <TouchableOpacity><Text className="text-[#00CCBB]">Remove</Text></TouchableOpacity>
           </View>
         ))}
       </ScrollView>
@@ -66,7 +67,7 @@ const BasketScreen = () => {
         </View>
         
         <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
-           <Text className="text-white text-center">Place Order</Text>
+           <Text className="text-white text-center font-semibold">Place Order</Text>
         </TouchableOpacity>
       </View>
       </View>
