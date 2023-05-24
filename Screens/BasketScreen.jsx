@@ -66,7 +66,7 @@ const BasketScreen = () => {
           <Text>{basketTotoal+20}</Text> 
         </View>
         
-        <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
+        <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4" onPress={()=>navigation.navigate('PreLoad')}>
            <Text className="text-white text-center font-semibold">Place Order</Text>
         </TouchableOpacity>
       </View>

@@ -15,7 +15,7 @@ export default function Features({id,title,description,restaurents}) {
         <ScrollView contentContainerStyle={{ paddingHorizontal:1 }} horizontal showsHorizontalScrollIndicator={false} className="pt-4">
           {restaurents && restaurents.map(el=>(
             el.restaurant?.featured_image && <RestaurentCard 
-                id={'ss'}
+                id={id}
                 thumb={el.restaurant.thumb?el.restaurant.thumb:el.restaurant.featured_image}
                 imgUrl={el.restaurant?.featured_image} 
                 title={el.restaurant.name}
