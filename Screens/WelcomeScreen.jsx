@@ -9,7 +9,7 @@ const WelcomeScreen = () => {
     useEffect(()=>{
         setTimeout(()=>{
             navigation.navigate("Login");
-        },3000)
+        },4000)
     },[])
   return (
     <View className="flex-1 bg-[#00CCBB] justify-center items-center">
