@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux'
 import { selectBasketItems } from '../Feature/basketSlice'
 const DeliveryScreen = () => {
     const navigation = useNavigation();
-    const restaurent = useSelector(selectBasketItems)
+    const restaurent = useSelector(selectBasketItems);
+    // const restaurentCoordinates = useSelector()
   return (
     <View className="bg-[#00CCBB] flex-1">
         <SafeAreaView className="z-50" style={globalStyleSheet.androidSaveAreaView}>
@@ -37,7 +38,30 @@ const DeliveryScreen = () => {
                 className="flex-1 -mt-10 z-0" 
                 initialRegion={{latitude: 28.561499150922536,longitude:77.06671690682862 ,longitudeDelta:0.05,latitudeDelta:0.05}}
                 mapType='mutedStandard'
-            ></MapView>
+            >
+                <Marker 
+                coordinate={{
+                    latitude:28.5542851000,
+                    longitude:77.1944706000
+                }}
+                title='Hauz khas'
+                identifier='origin'
+                pinColor='#00CCBB'
+                />
+            </MapView>
+
+            <SafeAreaView className="bg-white flex-row items-center space-x-5 h-28">
+                <Image 
+                source={{uri:'https:links.papareact.com/wru'}}
+                className="h-12 w-12 bg-gray-300 p-4 rounded-full ml-5"
+            />
+            <View className="flex-1">
+                <Text className="text-lg">Banty</Text>
+                <Text className="text-gray-400">Your Ride</Text>
+            </View>
+                <Text className="text-[#00CCBB] text-lg mr-5 font-bold">Call</Text>
+
+            </SafeAreaView>
         </SafeAreaView>
     </View>
   )
