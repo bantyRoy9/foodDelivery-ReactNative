@@ -11,7 +11,6 @@ const BasketIcons = () => {
     const item = useSelector(selectBasketItems);
     const basketTotal = useSelector(basketItemsTotal);
     const navigation = useNavigation();
-    console.log(item)
   return (
       <View className="absolute bottom-6 w-full z-50">
         {item.length ? <> 

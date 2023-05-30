@@ -63,7 +63,7 @@ export default function Restaurent() {
       <View className={ items.length>0 ? 'pb-24' : 'pb-0'}>
       <Text className="p-4 text-white text-lg bg-gray-400">Menu</Text>
         {dishList.map((el,idx)=>(
-          <DishRow id={idx} title={el.title} imgUrl={el.imgUrl} price={el.price} description={el.description}/>
+          <DishRow key={idx} id={idx} title={el.title} imgUrl={el.imgUrl} price={el.price} description={el.description}/>
         ))}
       </View>
     </ScrollView>
