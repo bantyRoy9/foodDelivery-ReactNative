@@ -13,8 +13,8 @@ export default function Features({id,title,description,restaurents}) {
         </View>
         <Text className="text-gray-500 text-xs">{description}</Text>
         <ScrollView contentContainerStyle={{ paddingHorizontal:1 }} horizontal showsHorizontalScrollIndicator={false} className="pt-4">
-          {restaurents && restaurents.map(el=>(
-            el.restaurant?.featured_image && <RestaurentCard 
+          {restaurents && restaurents.map((el,idx)=>(
+            el.restaurant?.featured_image && <RestaurentCard key={idx}
                 id={id}
                 thumb={el.restaurant.thumb?el.restaurant.thumb:el.restaurant.featured_image}
                 imgUrl={el.restaurant?.featured_image} 
