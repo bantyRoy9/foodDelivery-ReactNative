@@ -17,6 +17,14 @@ const LoginScreen = () => {
     loadFonts();
   }, [])
   const navigation = useNavigation();
+  const [number,setNumber] = useState({});
+  const changeHandler =(e)=>{
+    setNumber(e);
+    console.log(e);
+  }
+  const validateNumber = () => {
+    navigation.navigate('OtpVerification')
+  }
   return (
     <View className="flex-1 bg-gray-50">
       <View className="">
@@ -36,11 +44,11 @@ const LoginScreen = () => {
           <View className="flex-1 h-0.5 bg-gray-300"></View>
         </View>
         <View className="my-4">
-          <PhoneInput defaultCode='IN' layout='first' withShadow />
+          <PhoneInput defaultCode='IN' layout='first' withShadow onChangeText={changeHandler}/>
         </View>
       </View>
       <View className="my-1">
-        <TouchableOpacity className="rounded-lg bg-[#00CCBB] w-72 m-auto p-3" onPress={() => navigation.navigate('PreLoad')}>
+        <TouchableOpacity className="rounded-lg bg-[#00CCBB] w-72 m-auto p-3" onPress={validateNumber}>
           <Text className="text-white text-center font-semibold">Continue</Text>
         </TouchableOpacity>
       </View>
