@@ -11,6 +11,7 @@ import PreLoadingScreen from './Screens/PreLoadingScreen';
 import DeliveryScreen from './Screens/DeliveryScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
 import LoginScreen from './Screens/LoginScreen';
+import otpVerificationScreen from './Screens/otpVerificationScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +27,7 @@ export default function App() {
           <Stack.Screen name="Basket" component={BasketScreen} options={{ presentation:"card",headerShown:false }} />
           <Stack.Screen name="PreLoad" component={PreLoadingScreen} options={{ headerShown:false }} />
           <Stack.Screen name="Delivery" component={DeliveryScreen} options={{ headerShown:false }} />
-
+          <Stack.Screen name="OtpVerification" component={otpVerificationScreen} options={{ headerShown:false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
