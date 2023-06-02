@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Button } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
@@ -6,6 +6,7 @@ import PhoneInput from 'react-native-phone-number-input'
 import * as Font from 'expo-font'
 const LoginScreen = () => {
   const [fontLoad, setFontLoad] = useState(false);
+  const [isBtnDisabled,setIsBtnDisabled] = useState(false);
 
   const loadFonts = async () => {
     await Font.loadAsync({
@@ -17,13 +18,19 @@ const LoginScreen = () => {
     loadFonts();
   }, [])
   const navigation = useNavigation();
-  const [number,setNumber] = useState({});
-  const changeHandler =(e)=>{
-    setNumber(e);
-    console.log(e);
+  const [number,setNumber] = useState('');
+  const [error,setError] = useState('')
+
+  const changeHandler =(numberInput)=>{
+    setNumber(numberInput);
+    setError('');
   }
   const validateNumber = () => {
-    navigation.navigate('OtpVerification')
+    if(number && number.length == 10){
+      navigation.navigate('OtpVerification')
+     }else{
+       setError(`${number} is Invalid Number`);
+     }
   }
   return (
     <View className="flex-1 bg-gray-50">
@@ -45,11 +52,12 @@ const LoginScreen = () => {
         </View>
         <View className="my-4">
           <PhoneInput defaultCode='IN' layout='first' withShadow onChangeText={changeHandler}/>
+          { error && <Text className="text-red-600 text-xs my-1">*{error}</Text>}
         </View>
       </View>
-      <View className="my-1">
-        <TouchableOpacity className="rounded-lg bg-[#00CCBB] w-72 m-auto p-3" onPress={validateNumber}>
-          <Text className="text-white text-center font-semibold">Continue</Text>
+      <View>
+        <TouchableOpacity className="rounded-lg bg-[#00CCBB] w-72 m-auto" >
+          <Button className="text-white text-center rounded-lg" title='Continue' onPress={validateNumber} color={'#00CCBB'} />
         </TouchableOpacity>
       </View>
       <View className="my-3">
