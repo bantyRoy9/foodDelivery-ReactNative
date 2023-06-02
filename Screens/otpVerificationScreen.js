@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const otpVerificationScreen = () => {
+const OtpVerificationScreen = () => {
   return (
     <View>
       <Text>otpVerificationScreen</Text>
@@ -9,4 +9,4 @@ const otpVerificationScreen = () => {
   )
 }
 
-export default otpVerificationScreen
+export default OtpVerificationScreen
