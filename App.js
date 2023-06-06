@@ -11,7 +11,7 @@ import PreLoadingScreen from './Screens/PreLoadingScreen';
 import DeliveryScreen from './Screens/DeliveryScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
 import LoginScreen from './Screens/LoginScreen';
-import OtpVerificationScreen from './Screens/otpVerificationScreen';
+import OtpVerificationScreen from './Screens/OtpVerificationScreen';
 
 const Stack = createNativeStackNavigator();
 

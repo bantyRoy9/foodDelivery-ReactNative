@@ -3,7 +3,7 @@ import React from 'react'
 
 const OtpVerificationScreen = () => {
   return (
-    <View>
+    <View className="flex-1 bg-gray-100 items-center">
       <Text>otpVerificationScreen</Text>
     </View>
   )

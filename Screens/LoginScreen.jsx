@@ -26,11 +26,15 @@ const LoginScreen = () => {
     setError('');
   }
   const validateNumber = () => {
-    if(number && number.length == 10){
-      navigation.navigate('OtpVerification')
-     }else{
-       setError(`${number} is Invalid Number`);
-     }
+    if(number){
+      if(number.length == 10){
+        navigation.navigate('OtpVerification')
+      }else{
+        setError(`${number} is Invalid Number`);
+      }
+    }else{
+      setError('Enter Valid Number');
+    }
   }
   return (
     <View className="flex-1 bg-gray-50">
@@ -79,8 +83,8 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View>
-        <View className="m-auto w-80 ">
+      <View className="relative">
+        <View className="absolute top-12 w-full m-auto">
           <Text className="text-center mt-2 text-gray-600 text-xs">By continuing, you agree to our</Text>
           <Text className="text-center text-gray-600 text-xs">Terms of service Privacy policy Content Policy</Text>
       </View>
