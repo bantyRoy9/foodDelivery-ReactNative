@@ -4,6 +4,7 @@ import { Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import PhoneInput from 'react-native-phone-number-input'
 import * as Font from 'expo-font'
+import { validMobileNumber } from '../Utils/commonFun'
 const LoginScreen = () => {
   const [fontLoad, setFontLoad] = useState(false);
   const [isBtnDisabled,setIsBtnDisabled] = useState(false);
@@ -26,14 +27,11 @@ const LoginScreen = () => {
     setError('');
   }
   const validateNumber = () => {
-    if(number){
-      if(number.length == 10){
-        navigation.navigate('OtpVerification')
-      }else{
-        setError(`${number} is Invalid Number`);
-      }
+    let validMobileNum = validMobileNumber(number);
+    if(validMobileNum.status){
+      navigation.navigate('OtpVerification')
     }else{
-      setError('Enter Valid Number');
+      setError(validMobileNum.msg);
     }
   }
   return (
