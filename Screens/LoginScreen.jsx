@@ -29,9 +29,9 @@ const LoginScreen = () => {
   const validateNumber = () => {
     let validMobileNum = validMobileNumber(number);
     if(validMobileNum.status){
-      navigation.navigate('OtpVerification')
     }else{
       setError(validMobileNum.msg);
+      navigation.navigate('OtpVerification')
     }
   }
   return (
