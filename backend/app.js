@@ -1,15 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const router = require('./Routes/auth.route');
 const { API_ENDPOINT_NOT_FOUND_ERR, SERVER_ERR } = require('./error');
 const AppError = require('./Utils/AppError');
 
 const PORT = process.env.PORT || 8000;
 const app = express();
-app.use(express.json())
+app.use(express.json());
 app.use(cors());
-
+app.use(cookieParser());
 app.get("/", (req, res) => {
     res.status(200).json({
       type: "success",
