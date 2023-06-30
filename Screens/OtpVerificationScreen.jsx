@@ -31,31 +31,11 @@ const OtpVerificationScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>OTP Verification</Text>
       <View style={styles.otpContainer}>
-        <OTPInputView
-          pinCount={4}
-          autoFocusOnLoad
-          codeInputFieldStyle={styles.otpInput}
-          onCodeChanged={code => setOTP(code)}
-        />
-        {/* <OTPInputView /> */}
+        
       </View>
       <View style={styles.codeContainer}>
         <Text style={styles.codeLabel}>Verification Code:</Text>
-        <NumericInput
-          value={verificationCode}
-          onChange={value => setVerificationCode(value)}
-          totalWidth={150}
-          totalHeight={40}
-          iconSize={25}
-          step={1}
-          minValue={1000}
-          maxValue={9999}
-          valueType="integer"
-          rounded
-          textColor="#000"
-          iconStyle={{ color: 'white' }}
-          containerStyle={styles.codeInput}
-        />
+        
       </View>
       <TouchableOpacity style={styles.button} onPress={handleVerification}>
         <Text style={styles.buttonText}>Verify</Text>
