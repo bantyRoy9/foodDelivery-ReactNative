@@ -1,37 +1,18 @@
-const mongoose = require('mongoose');
+const { default: mongoose } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const restaurentSchema = new mongoose.Schema({
-    type: {
-        type: String,
-        enum: ['restaurent', 'hotal'],
-        default: 'restaurent',
-        require: true
+const restaurentSchema = new Schema({
+    has_online_delivery:{
+        type:Number,
+        enum:[0,1],
+        default:1
     },
-    info: {
+    photos_url:String,
+    url:String,
+    price_range:Number,
+    user_rating:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'RestaurentInfo'
-    },
-    order: {
-        deliveryTime: String,
-        isServiceable: Boolean,
-        hasOnlineOrdering: Boolean,
-        actionInfo: {
-            text: Sting,
-            clickUrl: String
-        }
-    },
-    distance: String,
-    isPromoted: Boolean,
-    promotedText: String,
-    trackingData: Array,
-    allCTA: Array,
-    promoOffer: String,
-    checkBulkOffers: Boolean,
-    bulkOffers: Array,
-    isDisabled: Boolean,
-    bottomContainers: Array
+    }
 });
 
-const RestaurentModal = mongoose.model('Restautents', restaurentSchema);
-
-module.exports = RestaurentModal
+exports.restaurentModal = modal('Restaurents', restaurentSchema);
