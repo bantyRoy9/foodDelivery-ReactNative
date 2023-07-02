@@ -99,19 +99,18 @@ exports.signUp = async (req, res, next) => {
 exports.verifyOtp = async(req,res,next)=>{
     try{
         const { phone,otp } = req.body;
-        console.log(phone,typeof(otp));
-        
+                
         const response = await client.verify.v2.services(verifySid).verificationChecks.create({
             to:`+91${phone}`,
             code:otp
         });
-        console.log(response,'verifyed');
+        
         if(response.status !== 'aaproved' && !response.valid){
             next(new AppError(`Invalid Otp`), 400);
             return;
         }
         const user = await User.findOne({ phone });
-        console.log(user);
+
         createSendToken(user,200,res);
     }catch(err){
         res.status(500).json({
@@ -121,6 +120,7 @@ exports.verifyOtp = async(req,res,next)=>{
         console.log(err);
     }
 }
+
 exports.deleteUser= async(req, res, next)=>{
     try{
         const { phone } = req.body;

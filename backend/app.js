@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const router = require('./Routes/auth.route');
 const { API_ENDPOINT_NOT_FOUND_ERR, SERVER_ERR } = require('./error');
 const AppError = require('./Utils/AppError');
+const authRouter = require('./Routes/auth.route');
+const restaurentRouter = require('./Routes/restaurent.route');
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -20,7 +22,8 @@ app.get("/", (req, res) => {
   });
 
   
-app.use('/api/auth', router);
+app.use('/api/auth', authRouter);
+app.use('/api/v1/restaurent', restaurentRouter);
 
 app.all('*',(req,res,next)=>{
     next(new AppError(`Cant found ${req.originalUrl} on this server`, '404'));
