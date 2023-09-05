@@ -27,10 +27,10 @@ const restaurentSchema = new mongoose.Schema({
     },
     menu_url:String,
     name:String,
-    offers:{
+    offers:[{
         type: mongoose.Schema.Types.ObjectId,
         ref:'restaurentOffers'
-    },
+    }],
     photos_url:String,
     price_range:Number,
     switch_to_order_menu:Number,
@@ -51,5 +51,12 @@ const restaurentLocation = new mongoose.Schema({
     zipcode:String
 });
 
-exports.restaurentModal = new mongoose.model("Restaurent", restaurentSchema);
-exports.restaurentLocationModal = new mongoose.model("RestaurentLocation", restaurentLocation)
+const restaurentRatings = new mongoose.Schema({
+    rating_Text:String,
+    rating_color:String,
+    votes:String,
+    aggregate_rating:String
+});
+exports.restaurentModel = new mongoose.model("Restaurent", restaurentSchema);
+exports.restaurentLocationModel = new mongoose.model("RestaurentLocation", restaurentLocation);
+exports.restaurentRatingModel = new mongoose.model("RestaurentRating", restaurentRatings);
