@@ -31,15 +31,9 @@ const importData = async() =>{
                 if(el.longitude == ele.location.longitude){
                     ele.location = el._id;
                 }
-            })
-            // console.log(el.longitude,importFileData[idx]?.location.longitude)
-            // if(el.longitude == importFileData[idx]?.location.longitude && el.latitude == importFileData[idx]?.location.latitude){
-            //     console.log(el.longitude == importFileData[idx]?.location.longitude)
-            //     importFileData[idx].location = el._id;
-            // }
+            });
         });
-        console.log(importFileData);
-        //await restaurentModel.create(importFileData);
+        await restaurentModel.create(importFileData);
         console.log('Data successfully saved');
     }catch(er){
         console.log(er);

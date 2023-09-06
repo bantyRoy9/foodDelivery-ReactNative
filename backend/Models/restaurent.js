@@ -37,8 +37,10 @@ const restaurentSchema = new mongoose.Schema({
     thumb:String,
     url:String,
     user_rating:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'restaurentRatings'
+        rating_Text:String,
+        rating_color:String,
+        votes:String,
+        aggregate_rating:String
     }
 });
 const restaurentLocation = new mongoose.Schema({
