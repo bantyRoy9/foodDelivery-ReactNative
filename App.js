@@ -19,7 +19,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator defaultScreenOptions={WelcomeScreen}>
           <Stack.Screen name='Welcome' component={WelcomeScreen} options={{headerShown:false}}/>
           <Stack.Screen name='Login' component={LoginScreen} options={{headerShown:false}}/>
           <Stack.Screen name='Home' component={HomeScreen} options={{headerShown:false}}/>
